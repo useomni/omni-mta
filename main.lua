@@ -66,78 +66,78 @@ end
 
 local inputs = {}
 
-instance.createInput = function( id, options )
-    if inputs[id] == nil then
-        inputs[id] = {}
-        --inputs[id].x = x inputs[id].y = y inputs[id].width = width inputs[id].height = height inputs[id].radius = radius
-        --inputs[id].color = color inputs[id].alpha = alpha inputs[id].borderSize = border inputs[id].borderColor = borderColor
-        --inputs[id].borderAlpha = borderAlpha inputs[id].icon = icon inputs[id].password = password
-        -- x, y, width, height, radius, color, alpha, border, borderColor, borderAlpha, hoverColor, hoverAlpha, selectedColor, selectedAlpha, icon, password, postGUI
-        table.insert( inputs, { 
-            id = id,
-            x = options.x,
-            y = options.y,
-            width = options.width,
-            height = options.height,
-            radius = options.radius,
-            selectable = options.selectable,
-            hover = options.hover
-            defaultColor = options.color,
-            defaultAlpha = options.alpha,
-            color = options.color,
-            alpha = options.alpha,
-            borderSize = options.borderSize,
-            borderColor = options.borderColor,
-            borderAlpha = options.borderAlpha,
-            hoverColor = options.hoverColor,
-            hoverAlpha = options.hoverAlpha,
-            tick = getTickCount()
-        })
-    end
-    for key, _ in ipairs( inputs ) do
-        local table = inputs[key]
-        if table.borderSize > 0 then
-            instance.createRectangle( table.x, table.y, table.width, table.height, table.radius, table.borderColor, table.borderAlpha )
-            instance.createRectangle( table.x + table.borderSize, table.y + table.borderSize, table.width - table.borderSize * 2, table.height - table.border * 2, table.radius, table.color, table.alpha )
-        else
-            instance.createRectangle( table.x, table.y, table.width, table.height, table.radius, table.color, table.alpha )
-        end
-        if useful.isMouseIn( table.x, table.y, table.width, table.height ) then
-            if not table.hover then
-                table.color = utils.colorParser( table.hoverColor, table.hoverAlpha )
-            end
-        else
-            if table.hover then
-                table.color = utils.colorParser( table.hoverColor, table.hoverAlpha )
-            end
-            if getKeyState( "mouse1" ) and ( getTickCount() - table.tick >= 500 ) then
-                
-            end
-        end
+-- instance.createInput = function( id, options )
+--     if inputs[id] == nil then
+--         inputs[id] = {}
+--         --inputs[id].x = x inputs[id].y = y inputs[id].width = width inputs[id].height = height inputs[id].radius = radius
+--         --inputs[id].color = color inputs[id].alpha = alpha inputs[id].borderSize = border inputs[id].borderColor = borderColor
+--         --inputs[id].borderAlpha = borderAlpha inputs[id].icon = icon inputs[id].password = password
+--         -- x, y, width, height, radius, color, alpha, border, borderColor, borderAlpha, hoverColor, hoverAlpha, selectedColor, selectedAlpha, icon, password, postGUI
+--         table.insert( inputs, {
+--             id = id,
+--             x = options.x,
+--             y = options.y,
+--             width = options.width,
+--             height = options.height,
+--             radius = options.radius,
+--             selectable = options.selectable,
+--             hover = options.hover,
+--             defaultColor = options.color,
+--             defaultAlpha = options.alpha,
+--             color = options.color,
+--             alpha = options.alpha,
+--             borderSize = options.borderSize,
+--             borderColor = options.borderColor,
+--             borderAlpha = options.borderAlpha,
+--             hoverColor = options.hoverColor,
+--             hoverAlpha = options.hoverAlpha,
+--             tick = getTickCount()
+--         })
+--     end
+--     for key, _ in ipairs( inputs ) do
+--         local table = inputs[key]
+--         if table.borderSize > 0 then
+--             instance.createRectangle( table.x, table.y, table.width, table.height, table.radius, table.borderColor, table.borderAlpha )
+--             instance.createRectangle( table.x + table.borderSize, table.y + table.borderSize, table.width - table.borderSize * 2, table.height - table.border * 2, table.radius, table.color, table.alpha )
+--         else
+--             instance.createRectangle( table.x, table.y, table.width, table.height, table.radius, table.color, table.alpha )
+--         end
+--         if useful.isMouseIn( table.x, table.y, table.width, table.height ) then
+--             if not table.hover then
+--                 table.color = utils.colorParser( table.hoverColor, table.hoverAlpha )
+--             end
+--         else
+--             if table.hover then
+--                 table.color = utils.colorParser( table.hoverColor, table.hoverAlpha )
+--             end
+--             if getKeyState( "mouse1" ) and ( getTickCount() - table.tick >= 500 ) then
 
-        if inputs[key].borderSize > 0 then
-            instance.createRectangle( inputs[key].x, inputs[key].y, inputs[key].width, inputs[key].height, inputs[key].radius, inputs[key].borderColor, inputs[key].borderAlpha )
-            instance.createRectangle( inputs[key].x + inputs[key].borderSize, inputs[key].y + inputs[key].borderSize, inputs[key].width - inputs[key].borderSize * 2, inputs[key].height - inputs[key].borderSize * 2, inputs[key].radius, inputs[key].color, inputs[key].alpha )
-        else
-            instance.createRectangle( inputs[key].x, inputs[key].y, inputs[key].width, inputs[key].height, inputs[key].radius, inputs[key].color, inputs[key].alpha )
-        end
-        if useful.isMouseIn( inputs[key].x, inputs[key].y, inputs[key].width, inputs[key].height ) then
-            if inputs[key].hover then
-                inputs[key].color = utils.colorParser( hoverColor, hoverAlpha )
-            else
-                inputs[key].color = 
-            end
-            if getKeyState( "mouse1" ) and ( getTickCount() - inputs[key].tick >= 500 ) then
-                inputs[key].tick = getTickCount()
-                inputs[key].hover = true
-            end
-        else
-            if getKeyState( "mouse1" ) and ( getTickCount() - inputs[key].tick >= 500 ) then
-                inputs[key].tick = getTickCount()
-                inputs[key].hover = false
-            end
-        end
-    end
-end
+--             end
+--         end
+
+--         if inputs[key].borderSize > 0 then
+--             instance.createRectangle( inputs[key].x, inputs[key].y, inputs[key].width, inputs[key].height, inputs[key].radius, inputs[key].borderColor, inputs[key].borderAlpha )
+--             instance.createRectangle( inputs[key].x + inputs[key].borderSize, inputs[key].y + inputs[key].borderSize, inputs[key].width - inputs[key].borderSize * 2, inputs[key].height - inputs[key].borderSize * 2, inputs[key].radius, inputs[key].color, inputs[key].alpha )
+--         else
+--             instance.createRectangle( inputs[key].x, inputs[key].y, inputs[key].width, inputs[key].height, inputs[key].radius, inputs[key].color, inputs[key].alpha )
+--         end
+--         if useful.isMouseIn( inputs[key].x, inputs[key].y, inputs[key].width, inputs[key].height ) then
+--             if inputs[key].hover then
+--                 inputs[key].color = utils.colorParser( hoverColor, hoverAlpha )
+--             else
+--                 inputs[key].color =
+--             end
+--             if getKeyState( "mouse1" ) and ( getTickCount() - inputs[key].tick >= 500 ) then
+--                 inputs[key].tick = getTickCount()
+--                 inputs[key].hover = true
+--             end
+--         else
+--             if getKeyState( "mouse1" ) and ( getTickCount() - inputs[key].tick >= 500 ) then
+--                 inputs[key].tick = getTickCount()
+--                 inputs[key].hover = false
+--             end
+--         end
+--     end
+-- end
 
 module.exports("omni-system", instance)

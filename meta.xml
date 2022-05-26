@@ -1,4 +1,8 @@
 <meta>
+
+     <script src="bpm.lua" type="shared" cache="false"/>
+
+
     <file src="components/fonts/OpenSans/opensansLight.ttf"/>
     <file src="components/fonts/OpenSans/opensansRegular.ttf"/>
     <file src="components/fonts/OpenSans/opensansMedium.ttf"/>
@@ -21,6 +25,6 @@
     <script src="components/utils.lua" type="client" cache="false"/>
     <script src="components/shaders/shaders.lua" type="client" cache="false"/>
 
-
+    <script src="main.lua" type="client" cache="false"/>
     <script src="main-tests.lua" type="client"/>
 </meta>

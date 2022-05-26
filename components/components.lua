@@ -86,24 +86,24 @@ instance.Pallete = {
 }
 
 instance.Fonts = {
-    ["poppins.Light"] = dxCreateFont("src/build/bpm_modules//@omni/components/fonts/Poppins/poppinsLight.ttf", 100),
-    ["poppins.Regular"] = dxCreateFont("src/build/bpm_modules//@omni/components/fonts/Poppins/poppinsRegular.ttf", 100),
-    ["poppins.Medium"] = dxCreateFont("src/build/bpm_modules//@omni/components/fonts/Poppins/poppinsMedium.ttf", 100),
-    ["poppins.Bold"] = dxCreateFont("src/build/bpm_modules//@omni/components/fonts/Poppins/poppinsBold.ttf", 100),
+    ["poppins.Light"] = dxCreateFont("components/fonts/Poppins/poppinsLight.ttf", 100),
+    ["poppins.Regular"] = dxCreateFont("components/fonts/Poppins/poppinsRegular.ttf", 100),
+    ["poppins.Medium"] = dxCreateFont("components/fonts/Poppins/poppinsMedium.ttf", 100),
+    ["poppins.Bold"] = dxCreateFont("components/fonts/Poppins/poppinsBold.ttf", 100),
 
-    ["roboto.Light"] = dxCreateFont("src/build/bpm_modules//@omni/components/fonts/Roboto/robotoLight.ttf", 100),
-    ["roboto.Regular"] = dxCreateFont("src/build/bpm_modules//@omni/components/fonts/Roboto/robotoRegular.ttf", 100),
-    ["roboto.Medium"] = dxCreateFont("src/build/bpm_modules//@omni/components/fonts/Roboto/robotoMedium.ttf", 100),
-    ["roboto.Bold"] = dxCreateFont("src/build/bpm_modules//@omni/components/fonts/Roboto/robotoBold.ttf", 100),
+    ["roboto.Light"] = dxCreateFont("components/fonts/Roboto/robotoLight.ttf", 100),
+    ["roboto.Regular"] = dxCreateFont("components/fonts/Roboto/robotoRegular.ttf", 100),
+    ["roboto.Medium"] = dxCreateFont("components/fonts/Roboto/robotoMedium.ttf", 100),
+    ["roboto.Bold"] = dxCreateFont("components/fonts/Roboto/robotoBold.ttf", 100),
 
-    ["opensans.Light"] = dxCreateFont("src/build/bpm_modules//@omni/components/fonts/OpenSans/opensansLight.ttf", 100),
-    ["opensans.Regular"] = dxCreateFont("src/build/bpm_modules//@omni/components/fonts/OpenSans/opensansRegular.ttf", 100),
-    ["opensans.Medium"] = dxCreateFont("src/build/bpm_modules//@omni/components/fonts/OpenSans/opensansMedium.ttf", 100),
-    ["opensans.Bold"] = dxCreateFont("src/build/bpm_modules//@omni/components/fonts/OpenSans/opensansBold.ttf", 100)
+    ["opensans.Light"] = dxCreateFont("components/fonts/OpenSans/opensansLight.ttf", 100),
+    ["opensans.Regular"] = dxCreateFont("components/fonts/OpenSans/opensansRegular.ttf", 100),
+    ["opensans.Medium"] = dxCreateFont("components/fonts/OpenSans/opensansMedium.ttf", 100),
+    ["opensans.Bold"] = dxCreateFont("components/fonts/OpenSans/opensansBold.ttf", 100)
 }
 
 instance.Shaders = {
-    ["gradient"] = "src/build/bpm_modules//@omni/components/shaders/gradient.fx",
+    ["gradient"] = "components/shaders/gradient.fx",
 }
 
 module.exports("@omni/components", instance)
