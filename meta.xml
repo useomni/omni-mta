@@ -1,0 +1,26 @@
+<meta>
+    <file src="components/fonts/OpenSans/opensansLight.ttf"/>
+    <file src="components/fonts/OpenSans/opensansRegular.ttf"/>
+    <file src="components/fonts/OpenSans/opensansMedium.ttf"/>
+    <file src="components/fonts/OpenSans/opensansBold.ttf"/>
+
+    <file src="components/fonts/Poppins/poppinsLight.ttf"/>
+    <file src="components/fonts/Poppins/poppinsRegular.ttf"/>
+    <file src="components/fonts/Poppins/poppinsMedium.ttf"/>
+    <file src="components/fonts/Poppins/poppinsBold.ttf"/>
+
+    <file src="components/fonts/Roboto/robotoLight.ttf"/>
+    <file src="components/fonts/Roboto/robotoRegular.ttf"/>
+    <file src="components/fonts/Roboto/robotoMedium.ttf"/>
+    <file src="components/fonts/Roboto/robotoBold.ttf"/>
+
+    <file src="components/shaders/gradient.fx"/>
+
+    <script src="components/useful.lua" type="client" cache="false"/>
+    <script src="components/components.lua" type="client" cache="false"/>
+    <script src="components/utils.lua" type="client" cache="false"/>
+    <script src="components/shaders/shaders.lua" type="client" cache="false"/>
+
+
+    <script src="main-tests.lua" type="client"/>
+</meta>
