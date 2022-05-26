@@ -59,7 +59,7 @@ addEventHandler("onClientRender", root, function ()
     omni.createBluredRectangle(0, 0, 600, 900, "neutralColor.900", 255, false)
     omni.createText("hi Azedo", 0, 0, 500, 200, "semantic.positive", 255, "roboto.Bold", 50, "center", "center", false, false, false, false, false)
     omni.createImage(0, 0, 50, 50, ":guieditor/images/dx_elements/checkbox_tick.png", 0, 0, 0, "neutralColor.100", 255, false)
-   -- [ERRORED] omni.createGradientRectangle(0, 0, 600, 600, 10, "semantic.positive", 255, "semantic.negative", 255, false)
+    omni.createGradientRectangle(0, 0, 600, 600, 10, "semantic.positive", 255, "semantic.negative", 255, false)
     omni.createGradientCircle(1, 0, 0, 299, 200, 200, "secondColor.light", 255, "secondColor.gray", 10, false)
 end)
 
