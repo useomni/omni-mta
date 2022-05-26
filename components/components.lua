@@ -104,6 +104,9 @@ instance.Fonts = {
 
 instance.Shaders = {
     ["gradient"] = "components/shaders/gradient.fx",
+    ["mta-helper"] = "components/shaders/mta-helper.fx",
+    ["blurH"] = "components/shaders/blurH.fx",
+    ["blurV"] = "components/shaders/blurV.fx",
 }
 
 module.exports("@omni/components", instance)
