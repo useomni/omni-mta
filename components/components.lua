@@ -62,14 +62,14 @@ instance.Pallete = {
     -- Massive Colors
     ["massiveWhite.100"] = { 225, 225, 230 },
     ["massiveWhite.200"] = { 196, 196, 204 },
-    ["massiveWithe.300"] = { 141, 141, 153 },
-    ["massiveWithe.400"] = { 124, 124, 138 },
-    ["massiveWithe.500"] = { 80, 80, 89 },
-    ["massiveWithe.600"] = { 50, 50, 56 },
-    ["massiveWithe.700"] = { 41, 41, 46 },
-    ["massiveWithe.800"] = { 32, 32, 36 },
-    ["massiveWithe.900"] = { 18, 18, 20 },
-    ["massiveWithe.1000"] = { 9, 9, 10 },
+    ["massiveWhite.300"] = { 141, 141, 153 },
+    ["massiveWhite.400"] = { 124, 124, 138 },
+    ["massiveWhite.500"] = { 80, 80, 89 },
+    ["massiveWhite.600"] = { 50, 50, 56 },
+    ["massiveWhite.700"] = { 41, 41, 46 },
+    ["massiveWhite.800"] = { 32, 32, 36 },
+    ["massiveWhite.900"] = { 18, 18, 20 },
+    ["massiveWhite.1000"] = { 9, 9, 10 },
 
 
     -- Massive Colors
