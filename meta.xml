@@ -19,11 +19,25 @@
     <file src="components/fonts/Roboto/robotoBold.ttf"/>
 
     <file src="components/shaders/gradient.fx"/>
+    <file src="components/shaders/mta-helper.fx"/>
+    <file src="components/shaders/blurH.fx"/>
+    <file src="components/shaders/blurV.fx"/>
 
     <script src="components/useful.lua" type="client" cache="false"/>
     <script src="components/components.lua" type="client" cache="false"/>
     <script src="components/utils.lua" type="client" cache="false"/>
+
     <script src="components/shaders/shaders.lua" type="client" cache="false"/>
+
+    <!-- Exports -->
+    <script src="components/exports/createRectangle.lua" type="client" cache="false"/>
+    <script src="components/exports/createBluredRectangle.lua" type="client" cache="false"/>
+    <script src="components/exports/createGradientCircle.lua" type="client" cache="false"/>
+    <script src="components/exports/createGradientRectangle.lua" type="client" cache="false"/>
+    <script src="components/exports/createImage.lua" type="client" cache="false"/>
+    <script src="components/exports/createText.lua" type="client" cache="false"/>
+
+    <script src="components/exports/createInput.lua" type="client" cache="false"/>
 
     <script src="main.lua" type="client" cache="false"/>
     <script src="main-tests.lua" type="client"/>
