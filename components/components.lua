@@ -86,20 +86,25 @@ instance.Pallete = {
 }
 
 instance.Fonts = {
-    ["poppins.Light"] = dxCreateFont("components/fonts/Poppins/poppinsLight.ttf", 100),
-    ["poppins.Regular"] = dxCreateFont("components/fonts/Poppins/poppinsRegular.ttf", 100),
-    ["poppins.Medium"] = dxCreateFont("components/fonts/Poppins/poppinsMedium.ttf", 100),
-    ["poppins.Bold"] = dxCreateFont("components/fonts/Poppins/poppinsBold.ttf", 100),
+    ["poppins.Light"] = dxCreateFont("components/fonts/Poppins/poppinsLight.ttf",100),
+    ["poppins.Regular"] = dxCreateFont("components/fonts/Poppins/poppinsRegular.ttf",100),
+    ["poppins.Medium"] = dxCreateFont("components/fonts/Poppins/poppinsMedium.ttf",100),
+    ["poppins.Bold"] = dxCreateFont("components/fonts/Poppins/poppinsBold.ttf",100),
 
-    ["roboto.Light"] = dxCreateFont("components/fonts/Roboto/robotoLight.ttf", 100),
-    ["roboto.Regular"] = dxCreateFont("components/fonts/Roboto/robotoRegular.ttf", 100),
-    ["roboto.Medium"] = dxCreateFont("components/fonts/Roboto/robotoMedium.ttf", 100),
-    ["roboto.Bold"] = dxCreateFont("components/fonts/Roboto/robotoBold.ttf", 100),
+    ["roboto.Light"] = dxCreateFont("components/fonts/Roboto/robotoLight.ttf",100),
+    ["roboto.Regular"] = dxCreateFont("components/fonts/Roboto/robotoRegular.ttf",100),
+    ["roboto.Medium"] = dxCreateFont("components/fonts/Roboto/robotoMedium.ttf",100),
+    ["roboto.Bold"] = dxCreateFont("components/fonts/Roboto/robotoBold.ttf",100),
 
-    ["opensans.Light"] = dxCreateFont("components/fonts/OpenSans/opensansLight.ttf", 100),
-    ["opensans.Regular"] = dxCreateFont("components/fonts/OpenSans/opensansRegular.ttf", 100),
-    ["opensans.Medium"] = dxCreateFont("components/fonts/OpenSans/opensansMedium.ttf", 100),
-    ["opensans.Bold"] = dxCreateFont("components/fonts/OpenSans/opensansBold.ttf", 100)
+    ["opensans.Light"] = dxCreateFont("components/fonts/OpenSans/opensansLight.ttf",100),
+    ["opensans.Regular"] = dxCreateFont("components/fonts/OpenSans/opensansRegular.ttf",100),
+    ["opensans.Medium"] = dxCreateFont("components/fonts/OpenSans/opensansMedium.ttf",100),
+    ["opensans.Bold"] = dxCreateFont("components/fonts/OpenSans/opensansBold.ttf",100),
+
+    ["rajdhani.Light"] = dxCreateFont("components/fonts/Rajdhani/rajdhaniLight.ttf",100),
+    ["rajdhani.Regular"] = dxCreateFont("components/fonts/Rajdhani/rajdhaniRegular.ttf",100),
+    ["rajdhani.Medium"] = dxCreateFont("components/fonts/Rajdhani/rajdhaniMedium.ttf",100),
+    ["rajdhani.Bold"] = dxCreateFont("components/fonts/Rajdhani/rajdhaniBold.ttf",100)
 }
 
 instance.Shaders = {
@@ -107,6 +112,9 @@ instance.Shaders = {
     ["mta-helper"] = "components/shaders/mta-helper.fx",
     ["blurH"] = "components/shaders/blurH.fx",
     ["blurV"] = "components/shaders/blurV.fx",
+    ["hou_circle"] = "components/shaders/hou_circle.fx",
+    ["hud_mask"] = "components/shaders/hud_mask.fx",
+    ["tex_matrix"] = "components/shaders/tex_matrix.fx",
 }
 
 module.exports("@omni/components", instance)

@@ -29,4 +29,8 @@ instance.createInput = function ( id, options )
     return omniCreateInput ( id, options )
 end
 
+instance.createCircleLine = function ( x, y, width, height, color, angleStart, angleSweep, borderWidth, alpha )
+    return omniCreateCircleLine(x, y, width, height, color, angleStart, angleSweep, borderWidth, alpha )
+end
+
 module.exports("omni-system", instance)

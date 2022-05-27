@@ -18,10 +18,19 @@
     <file src="components/fonts/Roboto/robotoMedium.ttf"/>
     <file src="components/fonts/Roboto/robotoBold.ttf"/>
 
+    <file src="components/fonts/Rajdhani/rajdhaniLight.ttf"/>
+    <file src="components/fonts/Rajdhani/rajdhaniRegular.ttf"/>
+    <file src="components/fonts/Rajdhani/rajdhaniMedium.ttf"/>
+    <file src="components/fonts/Rajdhani/rajdhaniBold.ttf"/>
+
     <file src="components/shaders/gradient.fx"/>
     <file src="components/shaders/mta-helper.fx"/>
     <file src="components/shaders/blurH.fx"/>
     <file src="components/shaders/blurV.fx"/>
+
+    <file src="components/shaders/hou_circle.fx"/>
+    <file src="components/shaders/hud_mask.fx"/>
+    <file src="components/shaders/tex_matrix.fx"/>
 
     <script src="components/useful.lua" type="client" cache="false"/>
     <script src="components/components.lua" type="client" cache="false"/>
@@ -36,6 +45,8 @@
     <script src="components/exports/createGradientRectangle.lua" type="client" cache="false"/>
     <script src="components/exports/createImage.lua" type="client" cache="false"/>
     <script src="components/exports/createText.lua" type="client" cache="false"/>
+    <script src="components/exports/createCircleLine.lua" type="client" cache="false"/>
+
 
     <script src="components/exports/createInput.lua" type="client" cache="false"/>
 
