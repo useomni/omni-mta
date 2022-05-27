@@ -4,72 +4,149 @@ local utils = require('@omni/utils')
 local shaders = require('@omni/shaders')
 
 local inputs = {}
+local svg_icons = {}
 
-function omniCreateInput ( id, options )
+function omniCreateInput( id, options )
     if inputs[id] == nil then
         inputs[id] = {}
-        --inputs[id].x = x inputs[id].y = y inputs[id].width = width inputs[id].height = height inputs[id].radius = radius
-        --inputs[id].color = color inputs[id].alpha = alpha inputs[id].borderSize = border inputs[id].borderColor = borderColor
-        --inputs[id].borderAlpha = borderAlpha inputs[id].icon = icon inputs[id].password = password
-        -- x, y, width, height, radius, color, alpha, border, borderColor, borderAlpha, hoverColor, hoverAlpha, selectedColor, selectedAlpha, icon, password, postGUI
+        local infos_inputs = options.infos
+        local borders = options.borders
+        local icons = options.icons
         table.insert( inputs, {
             id = id,
-            text = options.placeholder,
             x = options.x,
             y = options.y,
             width = options.width,
             height = options.height,
             radius = options.radius,
-            selectable = options.selectable,
-            hover = options.hover,
+            paddingX = options.paddingX,
+            paddingY = options.paddingY,
             color = options.color,
             alpha = options.alpha,
-            textColor = options.textColor,
-            textAlpha = options.textAlpha,
-            hoverText = options.hoverText,
-            borderSize = options.borderSize,
-            borderColor = options.borderColor,
-            borderAlpha = options.borderAlpha,
-            hoverColor = options.hoverColor,
-            hoverAlpha = options.hoverAlpha,
-            tick = getTickCount()
+            infos = infos_inputs,
+            borders = borders,
+            icons = icons,
+            defaults = {
+                color = options.color,
+                alpha = options.alpha,
+                textColor = infos_inputs.textColor,
+                textAlpha = infos_inputs.textAlpha,
+                borderColor = borders.borderColor,
+                borderAlpha = borders.borderAlpha,
+                iconColor = icons.iconColor,
+                iconAlpha = icons.iconAlpha,
+            },
+            tick = getTickCount(),
         })
     end
     for key, _ in ipairs( inputs ) do
-        local table = inputs[key]
-        local padding = 20
-        if icon then padding = 40 else padding = 20 end
-        if table.borderSize > 0 then
-            omniCreateRectangle( table.x, table.y, table.width, table.height, table.radius, table.borderColor, table.borderAlpha )
-            omniCreateRectangle( table.x + table.borderSize, table.y + table.borderSize, table.width - table.borderSize * 2, table.height - table.borderSize * 2, table.radius, table.color, table.alpha )
-            omniCreateText( table.text, table.x + padding, table.y + 15, table.width, table.height, table.textColor, table.textAlpha, "roboto.Regular", 10, "left", "top", false, false, false, false, false )
-        else
-            omniCreateRectangle( table.x, table.y, table.width, table.height, table.radius, table.color, table.alpha )
-        end
-        if table.hover then
-            table.text = ""
-        else
-            table.text = options.placeholder
-        end
-        if useful.isMouseIn( table.x, table.y, table.width, table.height ) then
-            table.textColor = table.hoverText
-            if getKeyState( "mouse1" ) and ( getTickCount() - table.tick >= 500 ) then
-                if not table.hover and table.selectable then
-                    table.hover = true
-                    --table.color = table.hoverColor
-                    print( table.text )
+        local element = inputs[key]
+        local infos = element.infos
+        local borders = element.borders
+        local icons = element.icons
+        local defaults = element.defaults
+        local text_input = table.concat( infos.text )
+        if text_input == "" then infos.text = { infos.placeholder } end
+        if element then
+            if borders.borderSize > 0 then
+                omniCreateRectangle( element.x, element.y, element.width, element.height, element.radius, borders.borderColor, borders.borderAlpha )
+                omniCreateRectangle( element.x + borders.borderSize, element.y + borders.borderSize, element.width - borders.borderSize * 2, element.height - borders.borderSize * 2, element.radius, element.color, element.alpha )
+                omniCreateText( text_input, element.x + infos.paddingX, element.x + infos.paddingY, element.width, element.height, infos.textColor, infos.textAlpha, infos.font, infos.fontSize, "left", "top", false, false, false, false, false )
+            else
+                omniCreateRectangle( element.x, element.y, element.width, element.height, element.radius, element.color, element.alpha )
+                omniCreateText( text_input, element.x + infos.paddingX, element.x + infos.paddingY, element.width, element.height )
+            end
+            if icons.icon then
+                if not svg_icons[id] then
+                    svg_icons[id] = svgCreate( icons.iconWidth, icons.iconHeight, icons.icon )
+                else
+                    omniCreateImage( element.x + icons.paddingX, element.y + icons.paddingY, icons.iconWidth, icons.iconHeight, svg_icons[id], 0, 0, 0, icons.iconColor, icons.iconAlpha, false )
                 end
             end
-        else
-            if not table.hover then
-                table.textColor = options.textColor
-            end
-            if getKeyState( "mouse1" ) and ( getTickCount() - table.tick >= 500 ) then
-                if table.hover then
-                    table.hover = false
-                    table.color = options.color
+            if useful.isMouseIn( element.x, element.y, element.width, element.height ) then
+                if infos.hoverColor then
+                    infos.textColor = infos.hoverColor
+                    infos.textAlpha = infos.hoverAlpha
+                end
+                if borders.hoverBorder then
+                    borders.borderColor = borders.hoverBorder
+                    borders.borderAlpha = borders.hoverAlpha
+                end
+                if icons.hoverIcon then
+                    icons.iconColor = icons.hoverIcon
+                    icons.iconAlpha = icons.hoverIconAlpha
+                end
+                if getKeyState( "mouse1" ) and ( getTickCount() - element.tick >= 500 ) then
+                    element.tick = getTickCount()
+                    if not infos.hover and infos.selectable then
+                        infos.hover = true
+                    end
+                end
+            else
+                if not infos.hover then
+                    infos.textColor = defaults.textColor
+                    infos.textAlpha = defaults.textAlpha
+                    borders.borderColor = defaults.borderColor
+                    borders.borderAlpha = defaults.borderAlpha
+                    icons.iconColor = defaults.iconColor
+                    icons.iconAlpha = defaults.iconAlpha
+                end
+                if getKeyState( "mouse1" ) and ( getTickCount() - element.tick >= 150 ) then
+                    element.tick = getTickCount()
+                    if infos.hover then
+                        infos.hover = false
+                        if text_input == "" then
+                            infos.text = { infos.placeholder }
+                        end
+                    end
                 end
             end
         end
     end
 end
+
+function destroyInput( id )
+    for key, value in ipairs( inputs ) do
+        if inputs[key].id == id then
+            table.remove( inputs, key )
+        end
+    end
+end
+
+function writeInput( character )
+    if inputs then
+        for key, value in ipairs( inputs ) do
+            local element = inputs[key]
+            local infos = element.infos
+            if infos.hover then
+                if infos.text and ( getTickCount() - element.tick >= 50 ) then
+                    element.tick = getTickCount()
+                    local the_input = table.concat( infos.text )
+                    if the_input == infos.placeholder then
+                        infos.text = {}
+                    end
+                    if #infos.text < infos.characterLimit then
+                        table.insert( infos.text, character )
+                    end
+                end
+            end
+        end
+    end
+end
+addEventHandler( "onClientCharacter", root, writeInput )
+
+function delWriteInput()
+    if inputs then
+        for key, _ in ipairs( inputs ) do
+            local element = inputs[key]
+            local infos = element.infos
+            if infos.hover then
+                if infos.text and ( getTickCount() - element.tick >= 50 ) then
+                    element.tick = getTickCount()
+                    table.remove( infos.text, #infos.text )
+                end
+            end
+        end
+    end
+end
+bindKey( "backspace", "down", delWriteInput )
